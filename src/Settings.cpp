@@ -44,11 +44,8 @@ const quint64 DEFAULT_OPTIMIZATION_MIXIN = 3;
 const char OPTION_SKIP_WALLET_OPTIMIZATION_TRANSACTIONS[] = "skipFusionTransactions";
 
 const QVector<NodeSetting> DEFAULT_NODES_LIST = {
-  {"node.karbo.io", 32348, "/", false},
-  {"node.karbo.org", 32348, "/", false},
-  {"node.karbowanec.com", 32348, "/", false},
-  {"free.rublin.org", 32348, "/", false},
-  {"node.krb.mypool.online", 32348, "/", false}
+  {"ssix1.cybersecuresix.com", 8201, "/", false},
+  {"ssix2.cybersecuresix.com", 8201, "/", false}
 };
 
 Settings& Settings::instance() {

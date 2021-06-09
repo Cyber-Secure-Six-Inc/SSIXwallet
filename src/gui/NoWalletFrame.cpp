@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2018, The karbo developers
+// Copyright (c) 2017-2018, The ssix developers
 //
-// This file is part of karbo.
+// This file is part of ssix.
 //
 // Karbovanets is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by

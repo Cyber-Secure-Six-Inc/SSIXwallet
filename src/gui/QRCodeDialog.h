@@ -1,7 +1,7 @@
 // Copyright (c) 2015-2017, The Bytecoin developers
-// Copyright (c) 2017-2021, The Karbo developers
+// Copyright (c) 2017-2021, The SSIX developers
 //
-// This file is part of Karbo.
+// This file is part of SSIX.
 //
 // Karbovanets is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by

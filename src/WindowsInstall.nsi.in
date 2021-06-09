@@ -1,4 +1,4 @@
-Name "Karbo Wallet (64-bit)"
+Name "SSIX Wallet (64-bit)"
 
 # General Symbol Definitions
 !define PROJECT_NAME "@WALLET_NAME@"
@@ -23,7 +23,7 @@ OutFile ".\Release\${PROJECT_NAME}-Setup.exe"
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER "Karbo Wallet"
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER "SSIX Wallet"
 !define MUI_FINISHPAGE_RUN "$WINDIR\explorer.exe"
 !define MUI_FINISHPAGE_RUN_PARAMETERS "$INSTDIR\${PROJECT_NAME}.exe"
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
@@ -51,7 +51,7 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # set desktop as install directory
-InstallDir $PROGRAMFILES64\Karbowanec
+InstallDir $PROGRAMFILES64\SSIX
 CRCCheck on
 BrandingText "@CN_CURRENCY_DISPLAY_NAME@ Wallet"
 ShowInstDetails show

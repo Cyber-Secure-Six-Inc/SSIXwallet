@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2016 The Cryptonote developers
 // Copyright (c) 2011-2013 The Bitcoin Core developers
 // Copyright (c) 2015-2016 XDN developers
-// Copyright (c) 2016-2021 The Karbo developers
+// Copyright (c) 2016-2021 The SSIX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -139,7 +139,7 @@ void MainWindow::connectToSignals() {
 }
 
 void MainWindow::setMainWindowTitle() {
-  setWindowTitle(QString(tr("Karbo Wallet %1")).arg(Settings::instance().getVersion()));
+  setWindowTitle(QString(tr("SSIX Wallet %1")).arg(Settings::instance().getVersion()));
 }
 void MainWindow::initUi() {
   setMainWindowTitle();
@@ -694,9 +694,9 @@ void MainWindow::createLanguageMenu(void)
   m_langPath = QApplication::applicationDirPath();
   m_langPath = m_langPath + "/../Resources/languages/";
 #elif defined(__FreeBSD__)
-  m_langPath = "/usr/local/share/karbo/karbowallet/languages";
+  m_langPath = "/usr/local/share/ssix/karbowallet/languages";
 #else
-  m_langPath = "/opt/karbo/languages";
+  m_langPath = "/opt/ssix/languages";
 #endif
   QDir dir(m_langPath);
   QStringList fileNames = dir.entryList(QStringList("??.qm"));
@@ -1167,7 +1167,7 @@ void MainWindow::walletOpened(bool _error, const QString& _error_text) {
       action->setEnabled(true);
     }
 
-    setWindowTitle(QString(tr("%1 - Karbo Wallet %2")).arg(Settings::instance().getWalletFile()).arg(Settings::instance().getVersion()));
+    setWindowTitle(QString(tr("%1 - SSIX Wallet %2")).arg(Settings::instance().getWalletFile()).arg(Settings::instance().getVersion()));
 
     m_ui->m_overviewAction->trigger();
     accountWidget->setVisible(true);
@@ -1214,7 +1214,7 @@ void MainWindow::walletClosed() {
   m_trackingModeIconLabel->hide();
   m_synchronizationStateIconLabel->hide();
 
-  setWindowTitle(QString(tr("Karbo Wallet %1")).arg(Settings::instance().getVersion()));
+  setWindowTitle(QString(tr("SSIX Wallet %1")).arg(Settings::instance().getVersion()));
 
   QList<QAction*> tabActions = m_tabActionGroup->actions();
   Q_FOREACH(auto action, tabActions) {
@@ -1238,7 +1238,7 @@ void MainWindow::createTrayIcon()
 {
 #ifdef Q_OS_WIN
     m_trayIcon = new QSystemTrayIcon(QPixmap(":images/cryptonote"), this);
-    QString toolTip = QString(tr("Karbo Wallet %1")).arg(Settings::instance().getVersion());
+    QString toolTip = QString(tr("SSIX Wallet %1")).arg(Settings::instance().getVersion());
     m_trayIcon->setToolTip(toolTip);
     m_trayIcon->show();
 #endif

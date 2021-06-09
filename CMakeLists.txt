@@ -145,8 +145,8 @@ configure_file(
     @ONLY
 )
 configure_file(
-    "${CMAKE_CURRENT_LIST_DIR}/src/karbowanecwallet.desktop.in"
-    "${CMAKE_CURRENT_BINARY_DIR}/karbowanecwallet.desktop"
+    "${CMAKE_CURRENT_LIST_DIR}/src/ssixwallet.desktop.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/ssixwallet.desktop"
     @ONLY
 )
 
@@ -401,9 +401,9 @@ elseif (UNIX)
     file(GLOB_RECURSE OBJC_SOURCES src/*.mm)
     set(SOURCES ${SOURCES} ${OBJC_SOURCES})
     set(PLATFORM_DIR OSX)
-    set(MACOSX_BUNDLE_INFO_STRING "Karbowanec GUI Wallet")
+    set(MACOSX_BUNDLE_INFO_STRING "SSIX GUI Wallet")
     set(MACOSX_BUNDLE_LONG_VERSION_STRING "${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
-    set(MACOSX_BUNDLE_BUNDLE_NAME "Karbo Wallet")
+    set(MACOSX_BUNDLE_BUNDLE_NAME "SSIX Wallet")
     set(MACOSX_BUNDLE_SHORT_VERSION_STRING "${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
     set(MACOSX_BUNDLE_BUNDLE_VERSION "$${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
 
@@ -415,8 +415,8 @@ elseif (UNIX)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c11 -maes -D_DARWIN_C_SOURCE")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -framework Cocoa -framework OpenGL -framework CoreFoundation -framework Carbon -framework IOKit -L/usr/lib")
 
-    set(MACOSX_BUNDLE_ICON_FILE karbowanec.icns)
-    set(APPLICATION_ICON src/images/karbowanec.icns)
+    set(MACOSX_BUNDLE_ICON_FILE SSIX.icns)
+    set(APPLICATION_ICON src/images/SSIX.icns)
     set_source_files_properties(${APPLICATION_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
 
     set(BUILD_PLATFORM MACOSX_BUNDLE)
@@ -603,8 +603,8 @@ qt5_use_modules(${WALLET_NAME} Widgets Gui Network)
 
 set(CPACK_PACKAGE_NAME ${WALLET_NAME})
 set(CPACK_PACKAGE_VERSION ${WALLET_VERSION})
-set(CPACK_PACKAGE_VENDOR "Karbowanec-project")
-set(CPACK_PACKAGE_CONTACT "https://karbo.org")
+set(CPACK_PACKAGE_VENDOR "Cyber Secure Six Inc.")
+set(CPACK_PACKAGE_CONTACT "https://cybersecuresix.com/")
 set(CPACK_STRIP_FILES ON)
 if (APPLE)
     set(CPACK_GENERATOR DragNDrop)
@@ -616,10 +616,10 @@ elseif (UNIX)
 
     install(PROGRAMS ${CMAKE_BINARY_DIR}/${WALLET_NAME} DESTINATION bin
     PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
-    install(FILES ${CMAKE_BINARY_DIR}/karbowanecwallet.desktop DESTINATION share/applications)
-    install(FILES src/images/karbowanez.png DESTINATION share/pixmaps RENAME karbowanec.png)
-    install(FILES copyright DESTINATION share/doc/karbowanecwallet)
-    install(DIRECTORY "${CMAKE_BINARY_DIR}/languages" DESTINATION /opt/karbo/ FILES_MATCHING PATTERN "*.qm")
+    install(FILES ${CMAKE_BINARY_DIR}/ssixwallet.desktop DESTINATION share/applications)
+    install(FILES src/images/SSIX.png DESTINATION share/pixmaps RENAME SSIX.png)
+    install(FILES copyright DESTINATION share/doc/ssixwallet)
+    install(DIRECTORY "${CMAKE_BINARY_DIR}/languages" DESTINATION /opt/ssix/ FILES_MATCHING PATTERN "*.qm")
 
     if (RPMBUILD)
         set(CPACK_GENERATOR "RPM;DEB")
@@ -628,11 +628,8 @@ elseif (UNIX)
         set(CPACK_RPM_PACKAGE_LICENSE "MIT")
         set(CPACK_RPM_PACKAGE_GROUP Office)
         set(CPACK_RPM_PACKAGE_REQUIRES "qt5-qtbase >= 5.3.2, qt5-qtbase-gui >= 5.3.2")
-        set(CPACK_RPM_PACKAGE_SUMMARY "Karbowanec KRB wallet")
-        set(CPACK_RPM_PACKAGE_DESCRIPTION "Karbowanec KRB wallet
- Karbowanec is Ukrainian decentrilized, privacy oriented peer-to-peer
- cryptocurrency. It is open-source, nobody owns or controls Karbowanec
- and everyone can take part.")
+        set(CPACK_RPM_PACKAGE_SUMMARY "SSIX wallet")
+        set(CPACK_RPM_PACKAGE_DESCRIPTION "SSIX wallet")
     else ()
         set(CPACK_GENERATOR DEB)
     endif ()
@@ -641,38 +638,32 @@ elseif (UNIX)
     set(CPACK_DEBIAN_PACKAGE_MAINTAINER "${CPACK_PACKAGE_VENDOR} <krbcoin@ukr.net>")
     set(CPACK_DEBIAN_PACKAGE_SECTION Office)
     set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
-    set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "Karbowanec KRB wallet
- Karbowanec is Ukrainian decentralized, privacy oriented peer-to-peer
- cryptocurrency. It is open-source, nobody owns or controls Karbowanec
- and everyone can take part.")
+    set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "SSIX wallet")
 
     set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-${CPACK_SYSTEM_NAME}")
 elseif (WIN32)
     set(CMAKE_INSTALL_UCRT_LIBRARIES TRUE)
     include(InstallRequiredSystemLibraries)
 
-    set (CPACK_PACKAGE_DESCRIPTION_SUMMARY "Karbowanec KRB wallet
- Karbowanec is Ukrainian decentralized, privacy oriented peer-to-peer
- cryptocurrency. It is open-source, nobody owns or controls Karbowanec
- and everyone can take part.")
+    set (CPACK_PACKAGE_DESCRIPTION_SUMMARY "SSIX is a privacy oriented peer-to-peer cryptocurrency")
     set (CPACK_PACKAGE_VERSION_MAJOR "1")
     set (CPACK_PACKAGE_VERSION_MINOR "4")
     set (CPACK_PACKAGE_VERSION_PATCH "1")
-    set (CPACK_PACKAGE_INSTALL_DIRECTORY "Karbowanec")
+    set (CPACK_PACKAGE_INSTALL_DIRECTORY "SSIX")
 
     # Define components and their display names
     set (CPACK_COMPONENTS_ALL applications)
-    set (CPACK_COMPONENT_APPLICATIONS_DISPLAY_NAME "Karbo wallet")
+    set (CPACK_COMPONENT_APPLICATIONS_DISPLAY_NAME "SSIX Wallet")
 
     # Human readable component descriptions
     set (CPACK_COMPONENT_APPLICATIONS_DESCRIPTION
-      "Ukrainian decentralized, privacy oriented peer-to-peer cryptocurrency")
+      "SSIX is a privacy oriented peer-to-peer cryptocurrency")
 
     # Define groups
     set(CPACK_COMPONENT_APPLICATIONS_GROUP "Runtime")
 
     set(CPACK_COMPONENT_GROUP_DEVELOPMENT_DESCRIPTION
-       "Ukrainian decentralized, privacy oriented peer-to-peer cryptocurrency")
+       "SSIX is a privacy oriented peer-to-peer cryptocurrency")
 
     # Define NSIS installation types
     set(CPACK_ALL_INSTALL_TYPES Full)
